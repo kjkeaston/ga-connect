@@ -6,7 +6,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -20,6 +21,7 @@
   <!-- Application JS files here -->
   <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"> </script>
   <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"> </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
@@ -38,10 +40,10 @@
     <div class = "col categories">
       <!-- class: category-link  -->
 
-    <img class = "nav-image catergory-link" data-category-name="uxdi" src="images/mackbook1.png" alt="">
-    <img class = "nav-image catergory-link" data-category-name="wdi"src="images/mackbook1.png" alt="">
-    <img class = "nav-image catergory-link" data-category-name="ios"src="images/mackbook1.png" alt="">
-    <img class = "nav-image catergory-link" data-category-name="coming-soon"src="images/mackbook1.png" alt="">
+    <img class = "nav-image category-link" data-role-name="UXDI" src="images/mackbook1.png" alt="">
+    <img class = "nav-image category-link" data-role-name="WDI" src="images/mackbook1.png" alt="">
+    <img class = "nav-image category-link" data-role-name="iOS" src="images/mackbook1.png" alt="">
+    <img class = "nav-image category-link" data-role-name="DSI" src="images/mackbook1.png" alt="">
   </div>
 
 <!--
@@ -53,57 +55,59 @@
 
   <section id = "browse-profiles" class = "row">
     <!-- div to hold our users( so if wdi is clicked, this should populate with wdi students) -->
-      <div id="users" class = "col">
+      <!-- <div id="users" class = "col">
         <h2 id="category-title">Wdi Students</h2>
 
         <div class="student-blurb">
           <img class ="user-pic"  src="images/about1.jpg" alt="">
-          <h2>{{name}}</h2>
+          <h2>{{name}}</h2> -->
 
-          <!-- modal button -->
+          <!-- modal button
             <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">About Me</button>
 
         </div>
-        <!-- <img src ="assets/images/top1" alt = "">
-        <img src ="assets/images/top2" alt = "">
-        <img src ="assets/images/top3" alt = ""> -->
-      </div>
+      </div> -->
 
     <!-- div to hold the user picks ( so kind of like a shopping cart) -->
-      <div id="build-your-team" class = "col">
+      <!-- <div id="build-your-team" class = "col">
         <h2>Build your Team</h2>
 
-      </div>
+      </div> -->
 
 
 
   </section>
 
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-   Launch demo modal
-  </button>
+  <section id="modal-display"></section>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<script id="users-template" type="text/x-handlebars-template">
+  {{#each users}}
+  <div class="student-blurb">
+      <img class ="user-pic"  src="{{this.photo}}" alt="">
+      <h2>{{this.first_name}} {{this.last_name}}</h2>
+          <!-- modal button -->
+      <button class="btn btn-primary modal-trigger" data-toggle="modal" data-target="#myModal" data-modal-id="{{this.id}}">About Me</button>
+  </div>
+  {{/each}}
+</script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
+         <h4 class="modal-title" id="myModalLabel"></h4>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
        </div>
        <div class="modal-body">
          ...
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
        </div>
      </div>
    </div>
   </div>
-
 
 </body>
 </html>

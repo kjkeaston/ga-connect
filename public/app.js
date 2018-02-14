@@ -2,11 +2,10 @@ $(function(){
 
   var env = {
     categorySelectors:$(".categories"),
-    mainContect: $("#mainContect"),
-    categoryTitle:$("category-title"),
-    modal: Handlebars.compile( $("#user-profile").html() ),
-    usersTemplate: Handlebars.compile( $("#usersTemplate").html() ),
-    userProfileTemplate: Handlebars.compile( $("#userProfileTemplate").html() ),
+    mainContent: $("#browse-profiles"),
+    categoryTitle:$(".category-title"),
+    modal: $("#myModal"),
+    usersTemplate: Handlebars.compile( $("#users-template").html() )
   }
 
 /********************
@@ -17,38 +16,42 @@ Event Listeners
 env.categorySelectors.on("click", ".category-link",function(event){
   event.preventDefault();
 
-  let categoryName = $(event.target).attr("data-category-name");
+  let categoryName = $(event.target).attr("data-role-name");
+  console.log(categoryName);
 
   // get users information from server
-  console.log("getting data .....");
 
   $.getJSON("https://ga-connected.herokuapp.com/users.json", function(users){
-    console.log("data recevied.....");
 
-    let fileredUsers = _.findWhere(users, {
+    let fileredUsers = _.where(users, {
       role: categoryName
     });
 
-    // MAKE USERS TEMPLATE
-    var selectedCategory = env.usersTemplate({ users: users});
-
-    env.mainContect.html(selectedCategory);
+  //   // MAKE USERS TEMPLATE
+    var selectedCategory = env.usersTemplate({ users: fileredUsers});
+    env.mainContent.html(selectedCategory);
   });
-})
+});
 
 
-env.mainContect.on("click", "<modal-button>",function(event){
+env.mainContent.on("click", ".modal-trigger",function(event){
   // event.preventDefault();
 
-  let categoryName = $(event.target).attr("data-modal-id");
+  let buttonId = $(event.target).attr("data-modal-id");
+  console.log(buttonId);
 
   // get users information from server
-  console.log("getting data .....");
-
   $.getJSON("https://ga-connected.herokuapp.com/users.json", function(users){
-    console.log("data recevied.....");
+    console.log(users)
+    let user = _.findWhere(users, {id: Number(buttonId) });
+    console.log(user);
 
+    env.modal.find("#myModalLabel").text(user.first_name + " " + user.last_name);
+    // let newModal = env.modalTemplate({ user: user });
 
+    // env.modalDisplay.html(newModal);
 
   });
-})
+});
+
+});
