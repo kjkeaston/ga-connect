@@ -19,7 +19,7 @@ end
 
 # Users
 users_data = []
-10.times do
+20.times do
   first = FFaker::Name.first_name
   last = FFaker::Name.last_name
   role_assigned = random_role
