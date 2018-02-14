@@ -20,7 +20,7 @@ users_data = []
     portfolio: "https://github.com/",
     linkedin: "https://www.linkedin.com",
     email: "#{first[0]}_#{last}@example.com".downcase,
-    photo: "https://www.linkedin.com"
+    photo: "https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg"
   }
 end
 
