@@ -48,7 +48,7 @@ env.mainContent.on("click", ".modal-trigger",function(event){
 
     env.modal.find("#myModalLabel").text(user.first_name + " " + user.last_name);
     env.modal.find("#about-pic").attr("src", user.photo);
-    env.modal.find("#skills").text(user.skills.join(", "));
+    env.modal.find("#skills").text( JSON.parse(user.skills).join(", ") );
     // let newModal = env.modalTemplate({ user: user });
 
     // env.modalDisplay.html(newModal);
