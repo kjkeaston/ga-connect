@@ -7,16 +7,27 @@ def random_role
   ["WDI", "UXDI", "DSI", "iOS"].sample
 end
 
+def get_skills(role)
+  skills = {
+    WDI: ["HTML", "CSS", "Javascript","Node.js", "Express"],
+    UXDI: ["Adobe Suite", "Sketch", "Zeplin", "Invision"],
+    DSI: ["Python", "Modeling", "Calculus", "SQL"],
+    iOS: ["Xcode", "Swift", "Javascript", "React"]
+  }
+  return skills[role]
+end
+
 # Users
 users_data = []
 10.times do
   first = FFaker::Name.first_name
   last = FFaker::Name.last_name
+  role_assigned = random_role
   users_data << {
     first_name: first,
     last_name: last,
-    role: random_role,
-    skills: "HTML, CSS, Javascript, Bootstrap, Zeplin, Jira, Invision, Adobe Suite, Node.js, Express, Sketch, React, Python",
+    role: role_assigned,
+    skills: get_skills(role_assigned.to_sym),
     portfolio: "https://github.com/",
     linkedin: "https://www.linkedin.com",
     email: "#{first[0]}_#{last}@example.com".downcase,
