@@ -7,6 +7,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- favicon -->
+
+  <!-- <link rel=“shortcut icon” href=“images/favicon.ico” type=“image/x-icon”> -->
+  <link rel=“icon” href=“images/favicon.ico” type=“image/x-icon”>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
@@ -18,17 +23,18 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
   <!-- Application JS files here -->
-  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"> </script>
-  <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"> </script>
-  <script type="text/javascript" src="app.js"></script>
+
 </head>
 <body>
 
 
 
   <header>
+    <img id = "logo-pic" src="images/logo.jpg" alt="">
 
-    <h1>GA Connect</h1>
+
+
+    <!-- <h1>GA Connect</h1> -->
     <!-- logo will go here -->
 
   </header>
@@ -61,7 +67,7 @@
           <h2>{{name}}</h2>
 
           <!-- modal button -->
-            <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">About Me</button>
+            <button type ="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">About Me</button>
 
         </div>
         <!-- <img src ="assets/images/top1" alt = "">
@@ -91,19 +97,77 @@
      <div class="modal-content">
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+         <h4 class="modal-title" id="myModalLabel">User Profile</h4>
        </div>
        <div class="modal-body">
-         ...
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         <button type="button" class="btn btn-primary">Save changes</button>
+         <div class = "row">
+           <div id = "about-text" class = "col-md-6">
+
+             <img id = "about-pic" src="images/about1.jpg" alt="kingsley headshot">
+
+             <!-- Skills Animation -->
+             <section id="skills-animation" >
+               <h2>My awesome skills</h2>
+               <hr>
+               <!-- <blockquote>
+                 <img src="assets/images/icons/pr-icon.png" alt="Adobe Premiere">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/ps-icon.png" alt="Adobe Photoshop">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/ai-icon.png" alt="Adobe Illustrator">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/ae-icon.png" alt="Adobe AfterEffects">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/lr-icon.png" alt="Adobe Lightroom">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/html-icon.png" alt="Adobe Premiere">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/javascript-icon.png" alt="Adobe Photoshop">
+               </blockquote>
+               <blockquote>
+                 <img src="assets/images/icons/css-icon.png" alt="Adobe Illustrator">
+               </blockquote> -->
+
+             </section>
+             <p>
+               Design Skills : Photoshop, Illustrator, Premiere, After Effects, Lightroom,   Cinema 4d
+             </p>
+             <p>
+               Programming Skills : HTML, CSS, JavaScript, jQuery, C++, Java, SQL, GitHub,   Node.js, Angular, Ruby on Rails, React, AJAX, OOP
+             </p>
+
+           </div>
+           <div class = "col">
+             <p>
+               Seasoned artist with over 10+ years experience in motion/still design transitioning into the technology industry. I enjoy drawing and working with all mediums of art on my free time.
+             </p>
+             <hr>
+
+           </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-secondary">Book Me</button>
+         </div>
        </div>
      </div>
    </div>
   </div>
 
 
+
+
+
 </body>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"> </script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"> </script>
+<script type="text/javascript" src="app.js"></script>
 </html>
